@@ -249,7 +249,7 @@
             <div class="form-container">
                 <h3 style="font-family: 'Cinzel', serif; text-align: center; color: var(--gold); margin-bottom: 25px; letter-spacing: 2px;">Formulir Pendaftaran UNIROW</h3>
                 
-                <form action="/simpan" method="POST">
+               <form action="/proses" method="POST">
                     @csrf
 
                     <table>
