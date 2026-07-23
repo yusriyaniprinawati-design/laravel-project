@@ -279,15 +279,15 @@
                         <tr>
                             <td>Alamat Rumah</td>
                             <td>:</td>
-                            <td><textarea name="alamat" rows="3" required></textarea></td>
+                            <td><textarea name="alamat_rumah" rows="3" required></textarea></td>
                         </tr>
                         <tr>
                             <td>Sekolah Asal</td>
                             <td>:</td>
                             <td>
-                                <input class="radio" type="radio" name="sekolah" value="SMA" required> SMA
-                                <input class="radio" type="radio" name="sekolah" value="MA"> MA
-                                <input class="radio" type="radio" name="sekolah" value="SMK"> SMK
+                                <input class="radio" type="radio" name="sekolah_asal" value="SMA" required> SMA
+                                <input class="radio" type="radio" name="sekolah_asal" value="MA"> MA
+                                <input class="radio" type="radio" name="sekolah_asal" value="SMK"> SMK
                             </td>
                         </tr>
                         <tr>
@@ -296,17 +296,17 @@
                         <tr>
                             <td>Matematika</td>
                             <td>:</td>
-                            <td><input type="text" name="mtk" required></td>
+                            <td><input type="text" name="nilai_matematika" required></td>
                         </tr>
                         <tr>
                             <td>Bahasa Inggris</td>
                             <td>:</td>
-                            <td><input type="text" name="bing" required></td>
+                            <td><input type="text" name="nilai_bahasa_inggris" required></td>
                         </tr>
                         <tr>
                             <td>Bahasa Indonesia</td>
                             <td>:</td>
-                            <td><input type="text" name="bindo" required></td>
+                            <td><input type="text" name="nilai_bahasa_indonesia" required></td>
                         </tr>
                         <tr>
                             <td colspan="3" style="padding-top: 20px;"><b style="color: var(--gold); font-family: 'Cinzel', serif;">Jurusan Dipilih</b></td>
@@ -315,7 +315,7 @@
                             <td>Pilihan 1</td>
                             <td>:</td>
                             <td>
-                                <select name="jur1" required>
+                                <select name="pilihan_1" required>
                                     <option value="TEKNIK INFORMATIKA">TEKNIK INFORMATIKA</option>
                                     <option value="SISTEM INFORMASI">SISTEM INFORMASI</option>
                                 </select>
@@ -325,7 +325,7 @@
                             <td>Pilihan 2</td>
                             <td>:</td>
                             <td>
-                                <select name="jur2" required>
+                                <select name="pilihan_2" required>
                                     <option value="TEKNIK INFORMATIKA">TEKNIK INFORMATIKA</option>
                                     <option value="SISTEM INFORMASI">SISTEM INFORMASI</option>
                                 </select>
@@ -334,7 +334,7 @@
                         <tr>
                             <td>Alasan Masuk</td>
                             <td>:</td>
-                            <td><textarea name="alasan" rows="5" required></textarea></td>
+                            <td><textarea name="alasan_masuk" rows="5" required></textarea></td>
                         </tr>
                         <tr>
                             <td></td>
