@@ -405,9 +405,8 @@
                             <th>ID</th>
                             <th>Nama</th>
                             <th>JK</th>
-                            <th>Sekolah</th>
                             <th>Pilihan 1</th>
-                            <th>Nilai MTK</th>
+                            <th>Pilihan 2</th>
                             <th>Opsi Tindakan</th>
                         </tr>
                     </thead>
@@ -417,9 +416,8 @@
                             <td>#{{ $row->id }}</td>
                             <td>{{ $row->nama }}</td>
                             <td>{{ $row->jenis_kelamin }}</td>
-                            <td>{{ $row->sekolah_asal }}</td>
                             <td>{{ $row->pilihan_1 }}</td>
-                            <td>{{ $row->nilai_matematika }}</td>
+                            <td>{{ $row->pilihan_2 }}</td>
                             <td>
                                 <a href="/edit?id={{ $row->id }}" class="action-btn action-edit">
                                     Ubah
