@@ -272,8 +272,8 @@
                             <td>Jenis Kelamin</td>
                             <td>:</td>
                             <td>
-                                <input class="radio" type="radio" name="jk" value="Laki-laki" required> Laki-laki
-                                <input class="radio" type="radio" name="jk" value="Perempuan"> Perempuan
+                                <input class="radio" type="radio" name="jenis_kelamin" value="Laki-laki" required> Laki-laki
+                                <input class="radio" type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
                             </td>
                         </tr>
                         <tr>
