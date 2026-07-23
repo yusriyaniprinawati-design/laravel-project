@@ -58,11 +58,12 @@
         .brand-subtitle { font-size: 9px; letter-spacing: 7px; color: #888; margin-top: 10px; text-transform: uppercase; }
 
         /* --- LAYOUT --- */
-        .wrapper { display: flex; min-height: 100vh; }
+        .wrapper { display: flex; min-height: 100vh; flex-direction: row; }
 
         nav { 
             width: 260px; background: #050505; border-right: 1px solid #222;
             position: fixed; height: 100%; padding-top: 30px;
+            transition: 0.3s;
         }
         nav a { 
             display: block; padding: 18px 30px; color: #666; text-decoration: none; 
@@ -71,15 +72,11 @@
         }
         nav a:hover { color: var(--gold); background: #111; border-left: 5px solid var(--gold); padding-left: 35px; }
 
-        /* --- LOGIKA NAVIGASI --- */
+        /* --- MAIN CONTENT --- */
         main { flex: 1; margin-left: 260px; padding: 80px; background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%); position: relative; }
         
         .page { display: none; opacity: 0; }
-
-        /* Menampilkan halaman yang di-target */
         .page:target { display: block !important; opacity: 1; animation: fadeIn 0.8s ease forwards; }
-
-        /* Munculkan Home secara default jika TIDAK ada target lain yang aktif */
         main:not(:has(section:target)) #home, #home:target { display: block; opacity: 1; }
 
         @keyframes fadeIn { to { opacity: 1; } }
@@ -108,7 +105,7 @@
         .btn-buy { padding: 18px 45px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; text-transform: uppercase; font-size: 11px; letter-spacing: 3px; transition: 0.5s; background: transparent; display: inline-block; cursor: pointer;}
         .btn-buy:hover { background: var(--gold); color: #000; box-shadow: 0 0 25px var(--gold-glow); }
 
-        /* --- INTEGRASI ADAPTASI FORMULIR MODUL 3 --- */
+        /* --- FORMULIR --- */
         .form-container {
             width: 100%; max-width: 750px; margin: 30px auto; background-color: #0d0d0d;
             padding: 35px; border-radius: 8px; border: 1px solid #222; box-shadow: 0 0 20px rgba(212,175,55,0.1);
@@ -117,6 +114,7 @@
         .form-container td { padding: 12px 10px; color: #ccc; font-size: 14px; vertical-align: middle; }
         .form-container input[type=text],
         .form-container input[type=date],
+        .form-container input[type=number],
         .form-container textarea,
         .form-container select {
             width: 100%; padding: 10px; background: #151515; border: 1px solid #333;
@@ -133,13 +131,15 @@
         .form-reset { background-color: transparent; color: var(--gold); }
         .form-reset:hover { background-color: #dc3545; color: #fff; border-color: #dc3545; }
 
-        /* --- STYLING REGISTRY LEDGER (TABEL DATABASE ASLI) --- */
+        /* --- REGISTRY LEDGER --- */
         .ledger-container {
             width: 100%; max-width: 850px; background-color: #0d0d0d;
             padding: 40px; border-radius: 8px; border: 1px solid #222; box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            overflow-x: auto;
         }
         .luxury-table {
             width: 100%; border-collapse: collapse; margin-top: 25px; font-size: 13px; letter-spacing: 0.5px;
+            min-width: 600px;
         }
         .luxury-table th {
             background-color: #111; color: var(--gold); font-family: 'Cinzel', serif;
@@ -149,27 +149,86 @@
         .luxury-table td {
             padding: 16px 12px; text-align: left; border-bottom: 1px solid #1c1c1c; color: #ddd; font-weight: 300;
         }
-        .luxury-table tr:hover {
-            background-color: rgba(212, 175, 55, 0.02);
-        }
+        .luxury-table tr:hover { background-color: rgba(212, 175, 55, 0.02); }
+        
         .action-btn {
             text-decoration: none; font-weight: 600; font-size: 11px; text-transform: uppercase;
             letter-spacing: 1px; padding: 6px 14px; border-radius: 4px; transition: 0.3s; display: inline-block;
         }
-        .action-edit {
-            color: var(--gold); border: 1px solid var(--gold); margin-right: 8px;
-        }
-        .action-edit:hover {
-            background-color: var(--gold); color: #000;
-        }
-        .action-delete {
-            color: #dc3545; border: 1px solid #dc3545;
-        }
-        .action-delete:hover {
-            background-color: #dc3545; color: #fff;
-        }
+        .action-edit { color: var(--gold); border: 1px solid var(--gold); margin-right: 8px; }
+        .action-edit:hover { background-color: var(--gold); color: #000; }
+        .action-delete { color: #dc3545; border: 1px solid #dc3545; }
+        .action-delete:hover { background-color: #dc3545; color: #fff; }
 
         footer { text-align: center; padding: 50px; background: #000; color: #333; font-size: 10px; letter-spacing: 3px; border-top: 1px solid #111; }
+
+        /* ==========================================
+           RESPONSIF UNTUK HP / LAYAR KECIL (MOBILE)
+           ========================================== */
+        @media screen and (max-width: 768px) {
+            .wrapper { flex-direction: column; }
+            
+            /* Menu navigasi pindah ke atas / posisi normal di HP */
+            nav {
+                position: relative;
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                border-right: none;
+                border-bottom: 1px solid #222;
+                padding: 10px 0;
+            }
+            nav a {
+                padding: 10px 15px;
+                font-size: 9px;
+                letter-spacing: 1px;
+                border-left: none !important;
+            }
+            nav a:hover {
+                padding-left: 15px;
+                background: #111;
+            }
+
+            /* Main content menyesuaikan lebar penuh */
+            main {
+                margin-left: 0;
+                padding: 30px 15px;
+            }
+
+            /* Judul disesuaikan ukurannya di HP */
+            h2 { font-size: 32px; }
+            .luxury-text { font-size: 22px; letter-spacing: 6px; }
+
+            /* Produk katalog jadi vertikal (gambar di atas, teks di bawah) */
+            .product-focus {
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+            .product-img {
+                width: 100%;
+                height: 320px;
+            }
+
+            /* Formulir dan tabel menyesuaikan layar HP */
+            .form-container, .ledger-container {
+                padding: 20px 15px;
+            }
+            .form-container td {
+                display: block;
+                width: 100% !important;
+                padding: 5px 0;
+            }
+            .form-container tr {
+                display: block;
+                margin-bottom: 15px;
+                border-bottom: 1px solid #1c1c1c;
+                padding-bottom: 10px;
+            }
+            .form-container td[width="5%"] { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -185,7 +244,7 @@
 </header>
 
 <div class="wrapper">
-    <!-- MENU DI NAVIGASI KIRI -->
+    <!-- MENU NAVIGASI -->
     <nav>
         <a href="#home">Main Hall</a>
         <a href="#profil">The Legacy</a>
@@ -193,7 +252,6 @@
         <a href="#fashion">Fashion Atelier</a>
         <a href="#gaming">Gaming Throne</a>
         <a href="#contact">Concierge & Form</a>
-        <!-- Menu Baru Khusus Modul 7 -->
         <a href="#ledger" style="color: var(--gold); font-weight: 600;">Registry Ledger</a>
     </nav>
 
@@ -274,7 +332,7 @@
             </div>
         </section>
 
-        <!-- SEKSI CONCIERGE & FORMULIR PENDAFTARAN UNIROW -->
+        <!-- SEKSI CONCIERGE & FORMULIR -->
         <section id="contact" class="page">
             <span class="sub-title">Personal Service</span>
             <h2>Concierge</h2>
@@ -387,7 +445,7 @@
             </div>
         </section>
 
-        <!-- MENU BARU: SEKSI REGISTRY LEDGER (UNTUK MODUL 7 - READ & DELETE) -->
+        <!-- SEKSI REGISTRY LEDGER -->
         <section id="ledger" class="page">
             <span class="sub-title">Database Records</span>
             <h2>Registry Ledger</h2>
@@ -419,15 +477,8 @@
                             <td>{{ $row->pilihan_1 }}</td>
                             <td>{{ $row->pilihan_2 }}</td>
                             <td>
-                                <a href="/edit?id={{ $row->id }}" class="action-btn action-edit">
-                                    Ubah
-                                </a>
-
-                                <a href="/hapus?id={{ $row->id }}"
-                                class="action-btn action-delete"
-                                onclick="return confirm('Yakin ingin menghapus data ini?')">
-                                    Hapus
-                                </a>
+                                <a href="/edit?id={{ $row->id }}" class="action-btn action-edit">Ubah</a>
+                                <a href="/hapus?id={{ $row->id }}" class="action-btn action-delete" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
                             </td>
                         </tr>
                         @endforeach
